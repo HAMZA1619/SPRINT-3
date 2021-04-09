@@ -8,7 +8,7 @@
     var div = e.getBoundingClientRect();
     return (
       div.bottom <= window.innerHeight  &&
-      div.right <= window.innerWidth 
+      div.top >= 0 
     );
   }
 
