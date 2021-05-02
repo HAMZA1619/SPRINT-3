@@ -1,12 +1,9 @@
 <template>
-  <div class="vue-tempalte">
-    <!-- Navigation -->
-    <nav class="navbar shadow bg-white rounded justify-content-between flex-nowrap flex-row fixed-top">
+  <div >
+    <nav class="navbar shadow bg-white justify-content-between  flex-row ">
       <div class="container">
-        <a class="navbar-brand float-left" href="https://youcode.ma/" target="_blank">
-           Youcode 
-        </a>
-        <ul class="nav navbar-nav flex-row float-right">
+        <a class="navbar-brand float-left" href="" >Youcode </a>
+         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
           </li>
@@ -17,13 +14,8 @@
       </div>
     </nav>
 
-    <!-- Main -->
     <div class="App">
-      <div class="vertical-center">
-        <div class="inner-block">
           <router-view />
-        </div>
-      </div>
     </div>
   </div>
 </template>

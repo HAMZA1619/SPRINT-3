@@ -4,13 +4,10 @@ import App from './App.vue'
 import router from './router'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '@/assets/css/main.css'
-
-Vue.config.productionTip = false
-
+import '@/assets/style/main.css'
 
 
 new Vue({
     router,
-    render: h => h(App)
+    render: hamza => hamza(App)
   }).$mount('#app')
