@@ -8,11 +8,11 @@
     <div class="card-body">
       <h3 class="card-title text-center">Login</h3>
       <div class="form-group mt-3">
-        <label>Full Name</label>
+        <label>Username :</label>
         <input type="text" name="username" class="form-control form-control-lg" required />
     </div>
     <div class="form-group mt-3">
-        <label>Password</label>
+        <label>Password :</label>
         <input type="password" name="password" class="form-control form-control-lg"  required/>
     </div>
     <button  class="mt-3 btn btn-dark form-control btn-lg  btn-block">Login</button>

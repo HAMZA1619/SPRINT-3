@@ -12,15 +12,16 @@ Class User
 		{
 
 			$arr['username'] = $POST['username'];
-			$arr['password'] = $POST['password'];
+			$arr['password'] = $POST['password']  ;
 
-			$query = "select * from user where name = :username && password = :password limit 1";
+			$query = "select * from user where username = :username && password = :password limit 1";
 			$data = $DB->read($query,$arr);
 			if(is_array($data))
 			{
- 				//logged in
- 				$_SESSION['user_name'] = $data[0]->name;
+ 				
+ 				$_SESSION['user_name'] = $data[0]->username;
 				$_SESSION['user_id'] = $data[0]->id;
+			
 
 				header("Location:". ROOT . "home");
 				die;
@@ -35,6 +36,18 @@ Class User
 		}
 
 	}
+	function selectUser(){
+		$DB = new Database();
+		$arr['id'] =$_SESSION['user_id'];
+			$query = "select * from user where id = :id";
+			$data = $DB->read($query,$arr);
+			if(is_array($data))
+		   {
+			return $data;
+			
+		    }
+			return false;
+    }
 
 	function signup($POST)
 	{
@@ -46,11 +59,11 @@ Class User
 		{
 
 			$arr['username'] = $POST['username'];
-			$arr['password'] = $POST['password'];
+			$arr['password'] =$POST['password']  ;
 			$arr['email'] = $POST['email'];
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "insert into user (name,password,email,date) values (:username,:password,:email,:date)";
+			$query = "insert into user (username,password,email,date) values (:username,:password,:email,:date)";
 			$data = $DB->write($query,$arr);
 			if($data)
 			{
@@ -65,25 +78,28 @@ Class User
 		}
 	}
 
-	function check_logged_in()
+
+	function modifieUser($POST)
 	{
 
 		$DB = new Database();
-		if(isset($_SESSION['user_url']))
+		if(isset($POST['update']))
 		{
+			$arr['id'] =$_SESSION['user_id'];
+			$arr['username'] = $POST['username'];
+			$arr['password'] =$POST['password']  ;
+			$arr['email'] = $POST['email'];
+			$arr['date'] = date("Y-m-d H:i:s");
 
-			$arr['user_url'] = $_SESSION['user_url'];
-
-			$query = "select * from users where url_address = :user_url limit 1";
-			$data = $DB->read($query,$arr);
+			$query = "UPDATE  user SET username= :username ,password = :password ,email =:email,date = :date WHERE id = :id ";
+			$data = $DB->write($query,$arr);
 			if(is_array($data))
 			{
-				//logged in
- 				$_SESSION['user_name'] = $data[0]->username;
-				$_SESSION['user_url'] = $data[0]->url_address;
-
 				return true;
 			}
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "0.01";
+			header("Refresh: $sec; url=$page"); 
 		}
 
 		return false;
@@ -92,9 +108,9 @@ Class User
 
 	function logout()
 	{
-		//logged in
+		
 		unset($_SESSION['user_name']);
-		unset($_SESSION['user_url']);
+		unset($_SESSION['user_id']);
 
 		header("Location:". ROOT . "login");
 		die;

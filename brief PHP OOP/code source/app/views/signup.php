@@ -5,15 +5,15 @@
     <div class="card-body">
       <h3 class="card-title text-center">Sign Up</h3>
       <div class="form-group">
-        <label>Full Name</label>
+        <label>Username :</label>
         <input type="text" name="username" class="form-control form-control-lg" required/>
     </div>
       <div class="form-group mt-3">
-        <label>Email address</label>
+        <label>Email address :</label>
         <input type="email" name="email" class="form-control form-control-lg" required />
     </div>
     <div class="form-group mt-3">
-        <label>Password</label>
+        <label>Password :</label>
         <input type="password" name="password" class="form-control form-control-lg" required/>
     </div>
             <button type="submit" class="mt-3 btn btn-dark form-control btn-lg  btn-block">Sign Up</button>

@@ -30,6 +30,12 @@
                 <a class="nav-link link-secondary" href="<?=ROOT?>contact">Contact</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link link-secondary" href="<?=ROOT?>apprenants">Apprenant</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link-secondary" href="<?=ROOT?>salle">Class</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link link-secondary" href="<?=ROOT?>logout">Logout</a>
               </li>
               <?php elseif(!isset($_SESSION['user_name'])): ?>
