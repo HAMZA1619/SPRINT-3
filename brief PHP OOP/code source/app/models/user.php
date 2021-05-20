@@ -87,11 +87,11 @@ Class User
 		{
 			$arr['id'] =$_SESSION['user_id'];
 			$arr['username'] = $POST['username'];
-			$arr['password'] =$POST['password']  ;
+			// $arr['password'] =$POST['password']  ;
 			$arr['email'] = $POST['email'];
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "UPDATE  user SET username= :username ,password = :password ,email =:email,date = :date WHERE id = :id ";
+			$query = "UPDATE  user SET username= :username ,email =:email,date = :date WHERE id = :id ";
 			$data = $DB->write($query,$arr);
 			if(is_array($data))
 			{
@@ -100,6 +100,27 @@ Class User
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "0.01";
 			header("Refresh: $sec; url=$page"); 
+		}
+
+		return false;
+
+	}
+	function resetPassword($POST)
+	{
+
+		$DB = new Database();
+		if(isset($POST['reset']))
+		{
+			$arr['id'] =$_SESSION['user_id'];
+			$arr['password'] =$POST['password']  ;
+			$arr['date'] = date("Y-m-d H:i:s");
+
+			$query = "UPDATE  user SET password= :password ,date = :date WHERE id = :id ";
+			$data = $DB->write($query,$arr);
+			if(is_array($data))
+			{
+				return true;
+			}
 		}
 
 		return false;

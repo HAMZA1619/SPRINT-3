@@ -17,7 +17,7 @@ class Classes {
 			if($data)
 			{
 				
-				header("Location:". ROOT . "classes");
+				header("Location:". ROOT . "salle");
 				die;
 			}
 

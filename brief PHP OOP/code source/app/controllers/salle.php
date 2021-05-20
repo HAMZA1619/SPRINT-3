@@ -7,6 +7,8 @@ Class Salle extends Controller
 
 		$add = $this->loadModel("classes");
 		$data['salle'] = $add->selectClass();
+		$stud = $this->loadModel("apprenant");
+		$data['student'] = $stud->selectApprenant();
 
 		if(isset($_POST['save']))
  	 	{

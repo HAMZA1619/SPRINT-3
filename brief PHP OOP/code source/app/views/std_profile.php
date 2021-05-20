@@ -3,7 +3,7 @@
   <?php foreach($data['std_profile'] as $rw):?>
 <form method="POST">
 
-<div class="card p-3 radius m-auto w-25 mt-4" >
+<div class="card p-3 radius m-auto w-50 mt-4" >
 <div class="card-body">
 <a class="btn  btn-info btn-block" href="apprenants">Back</a>
   <div class="form-group mt-2">
@@ -28,10 +28,13 @@
   </div>
   <div class="form-group mt-2">
   <label for="">Class :</label>
-  <select name='id_class' class="form-control" value="<?=$rw->id_class?>"  required>
-          
-            <option value='1'>Male</option>
-            <option value='0'>Female</option>
+  <select name='id_class' class="form-control"  required>
+                  <option value='<?=$rw->id_class ?>'><?=$rw->id_class ?></option>
+                    <?php if(is_array($data['sall'])): ?>
+                    <?php foreach($data['sall'] as $row): ?>
+                    <option value='<?=$row->nom ?>'><?=$row->nom ?></option>
+                    <?php endforeach; ?>
+                 <?php endif; ?>
             </select>
   </div>
  

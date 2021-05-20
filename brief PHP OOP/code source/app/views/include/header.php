@@ -6,10 +6,10 @@
     <title><?=$data['page_title'] ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,400,600,900&subset=latin-ext" rel="stylesheet"> 
-    <script type="text/javascript" src="<?=ASSETS?>js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="<?=ASSETS?>js/jquery-ui.min.js"></script>      
+    <link rel="stylesheet" href="<?=ASSETS?>css/main.css">
+    
   </head>
-  <body style="background-color: #0F94C0;">
+  <body >
   <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
           <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,20 +24,20 @@
                 <a class="nav-link link-light" href="<?=ROOT?>home" aria-current="page" >Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-secondary" href="<?=ROOT?>about">About Us</a>
+                <a class="nav-link link-secondary" href="<?=ROOT?>apprenants">Apprenant</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link link-secondary" href="<?=ROOT?>salle">Classes</a>
+              </li> 
               <li class="nav-item">
                 <a class="nav-link link-secondary" href="<?=ROOT?>contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-secondary" href="<?=ROOT?>apprenants">Apprenant</a>
+                <a class="nav-link link-secondary" href="<?=ROOT?>about">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link link-secondary" href="<?=ROOT?>salle">Class</a>
-              </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link link-secondary" href="<?=ROOT?>logout">Logout</a>
-              </li>
+              </li> -->
               <?php elseif(!isset($_SESSION['user_name'])): ?>
                <style>
                  .navbar{

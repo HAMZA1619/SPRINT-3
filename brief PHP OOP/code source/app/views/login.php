@@ -21,13 +21,7 @@
         <a href="<?=ROOT?>forgot">Forgot password ?</a>
     </p>
     <p><?php check_message() ?></p>
-            <div class="icons">
-                <ul class="list-unstyled w-50 m-auto h-50 row">
-                    <li class="col"><a href="#"><i class="fa fa-google"></i></a></li>
-                    <li class="col"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="col"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                </ul>
-            </div>
+            
     </div>
     </div>
   
