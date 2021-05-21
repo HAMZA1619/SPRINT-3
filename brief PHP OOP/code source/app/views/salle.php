@@ -1,18 +1,18 @@
 
 <?php $this->view("include/header",$data);?>
-<section>
-       <h3>Tableux Des Apprenants </h3>
+<div class="card  p-4" >
 
-       <button type="submit" data-toggle="modal" data-target="#add-salle"  class="btn btn-primery  btn-block">Add class</button>
-
-       <div class="tbl-header">
-         <table border="1">
+       <h3 class="text-center  ">Tableux Des Classes </h3>
+      
+       <div >
+         <table>
            <thead>
              <tr>
                <th>Nom</th>
                <th>Specialite</th>
                <th>Desception</th>
-               <th>Number of Students</th>
+               <th>Students</th>
+               <th>Modifie</th>
              </tr>
            </thead>
            <tbody>
@@ -28,18 +28,23 @@
                 <td><?= array_count_values(array_column($data['student'],'id_class'))[$nom] ?? 0 ?></td>
                 <?php endif; ?>
                 <!-- end of counting  -------------->
-               <td><form action="<?=ROOT?>salle_profile"  method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn  btn-info btn-block">Edit</button></form></td>
+               <td><form action="<?=ROOT?>salle_profile"  method="POST">
+               <button  type="submit" name="profile" value="<?=$row->id?>" class="btn  btn-success btn-block">
+               Edit <i style="margin-left: 5px;"  class="far fa-edit"></button></form></td>
              </tr>             
           <?php endforeach; ?>
           <?php endif; ?>
          </tbody>
         </table>
        </div>
-     </section>
+  
 
 
-     
-
+     <!-- Add class button  -->
+       <button type="submit" data-toggle="modal" data-target="#add-salle" class="btn add btn-info " >
+         Add class <i  class="fas fa-plus-circle"></i></button>
+         <!-- ------------ -->
+</div>
 
 
 <!-- Add class  ----------------->
@@ -48,8 +53,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="staticBackdropLabel">Add class</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="modal-body">

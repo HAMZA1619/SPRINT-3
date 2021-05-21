@@ -3,18 +3,18 @@
 <?php if(is_array($data['user'])):?>
 <?php foreach($data['user'] as $row):?>
 
-<div class="card  m-auto p-4" style="max-width: 90%;  ">
+<div class="card  m-auto p-4" >
 <div class="click">
-<button onclick="call()" id="click" >^</button>
-<button  onclick="back()" id="back">^</button>
+<button onclick="call()" id="click"class="btn btn-light" ><i class="fas fa-user-cog"></i></button>
+<button  onclick="back()" id="back"class="btn btn-light"><i class="fas fa-angle-double-up"></i></button>
 </div>
 <div class="row w-25 gap-2  " id="none">
-<button type="submit" data-toggle="modal" class="btn mt-1 btn-block btn-success  "  data-target="#update-modal"  >Update Profile</button>
-<button type="submit" data-toggle="modal" class="btn mt-1 btn-block btn-warning "  data-target="#update-password" >Change password</button>
-<a class="btn mt-1 btn-block btn-danger  " href="<?=ROOT?>logout">Logout</a>
+<button type="submit" data-toggle="modal" class="btn mt-1 btn-block btn-success  "  data-target="#update-modal"  >Update Profile <i class="fas fa-user"></i></button>
+<button type="submit" data-toggle="modal" class="btn mt-1 btn-block btn-warning "  data-target="#update-password" >Change password <i class="fas fa-key"></i></button>
+<a class="btn mt-1 btn-block btn-danger  " href="<?=ROOT?>logout">Logout <i class="fas fa-sign-out-alt"></i></a>
 </div>
 <div class="row g-0">
-<h1 class="card-title text-center ">Hi <?=$row->username?></h1>
+<h1 class="card-title text-center ">Hi <?=$row->username ?></h1>
 
   <?php if(is_array($data['student'])): ?>
     <?php $totale = count($data['student']); ?>
@@ -55,8 +55,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="staticBackdropLabel">Update Profile</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="modal-body">
@@ -89,8 +89,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="staticBackdropLabel">Change Password</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="modal-body">

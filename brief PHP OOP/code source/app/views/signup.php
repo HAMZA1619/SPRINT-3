@@ -1,7 +1,7 @@
 <?php $this->view("include/header",$data);?>
 
     <form class="register-form" method="post">
-    <div class="card radius p-3 m-auto w-25 mt-4" >
+    <div class="card radius p-3 m-auto log mt-4" >
     <div class="card-body">
       <h3 class="card-title text-center">Sign Up</h3>
       <div class="form-group">
@@ -16,10 +16,10 @@
         <label>Password :</label>
         <input type="password" name="password" class="form-control form-control-lg" required/>
     </div>
-            <button type="submit" class="mt-3 btn btn-dark form-control btn-lg  btn-block">Sign Up</button>
-            <p class="forgot-password mt-2 text-small text-right">
+            <button type="submit" name="signup" class="mt-3 btn btn-dark form-control btn-lg  btn-block">Sign Up</button>
+            <p class="forgot-password mt-2 text-small text-end">
                 Already registered 
-                <a href="<?=ROOT?>login">sign in?</a>
+                <a class="text-decoration-none" href="<?=ROOT?>login">sign in?</a>
             </p>
             <p><?php check_message() ?></p>
     </div>

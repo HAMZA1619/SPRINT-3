@@ -1,15 +1,18 @@
 
 <?php $this->view("include/header",$data);?>
-<section>
-       <h3>Tableux Des Apprenants </h3>
-       <div class="tbl-header">
-         <table border="1">
+
+<div class="card  p-4" >
+  <h3 class="text-center  ">Tableux Des Apprenants </h3>
+      
+       <div >
+         <table >
            <thead>
              <tr>
                <th>Nom</th>
                <th>Prenom</th>
                <th>Age</th>
                <th>Class</th>
+               <th>View Profile</th>
              </tr>
            </thead>
            <tbody>
@@ -20,25 +23,27 @@
                <td><?=$row->prenom?></td>
                <td><?=$row->age?></td>
                <td><?=$row->id_class?></td>
-               <td><form action="<?=ROOT?>std_profile" method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn btn-info btn-block">Profile</button></form></td>
+               <td><form action="<?=ROOT?>std_profile" method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn btn-success btn-block">Profile <i class="fas fa-user"></i></button></form></td>
              </tr>
      <?php endforeach; ?>
           <?php endif; ?>
      </tbody>
          </table>
        </div>
-     </section>
-
-     <button type="submit" data-toggle="modal" data-target="#add-student" class="btn btn-5 primery"class="btn btn-5" name="update" class="btn btn-5 primery">Add Student</button>
-
+  
+       <!-- Add student button  -->
+       <button type="submit" data-toggle="modal" data-target="#add-student" class="btn add btn-info " >
+         Add student <i  class="fas fa-plus-circle"></i></button>
+        <!-- ------------ -->
+        </div>
 <!-- Add student ------------------- -->
   <div class="modal fade" id="add-student" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="staticBackdropLabel">Add Student</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="modal-body">
@@ -55,7 +60,7 @@
           </div>
           <div class="form-group mt-2">
             <label for="">Sexe :</label>
-            <select name='genre' class="form-control"  required>
+            <select name='genre' class="form-select"  required>
                     <option value=''></option>
                     <option value='male'>Male</option>
                     <option value='female'>Female</option>
@@ -68,7 +73,7 @@
           <div class="form-group mt-2">
          
             <label for="">Class :</label>
-            <select name='id_class' class="form-control"  >
+            <select name='id_class' class="form-select"  >
                  <option value=''></option>
                  <?php if(is_array($data['sall'])): ?>
                  <?php foreach($data['sall'] as $rw): ?>

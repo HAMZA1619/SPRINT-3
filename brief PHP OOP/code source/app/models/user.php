@@ -8,7 +8,7 @@ Class User
 		$DB = new Database();
 
 		$_SESSION['error'] = "";
-		if(isset($POST['username']) && isset($POST['password']))
+		if(isset($POST['login']))
 		{
 
 			$arr['username'] = $POST['username'];
@@ -36,18 +36,7 @@ Class User
 		}
 
 	}
-	function selectUser(){
-		$DB = new Database();
-		$arr['id'] =$_SESSION['user_id'];
-			$query = "select * from user where id = :id";
-			$data = $DB->read($query,$arr);
-			if(is_array($data))
-		   {
-			return $data;
-			
-		    }
-			return false;
-    }
+
 
 	function signup($POST)
 	{
@@ -55,7 +44,7 @@ Class User
 		$DB = new Database();
 
 		$_SESSION['error'] = "";
-		if(isset($POST['username']) && isset($POST['password']))
+		if(isset($POST['signup']) )
 		{
 
 			$arr['username'] = $POST['username'];
@@ -77,7 +66,18 @@ Class User
 			$_SESSION['error'] = "please enter a valid username and password";
 		}
 	}
-
+	function selectUser(){
+		$DB = new Database();
+		$arr['id'] =$_SESSION['user_id'];
+			$query = "select * from user where id = :id";
+			$data = $DB->read($query,$arr);
+			if(is_array($data))
+		   {
+			return $data;
+			
+		    }
+			return false;
+    }
 
 	function modifieUser($POST)
 	{
@@ -87,7 +87,6 @@ Class User
 		{
 			$arr['id'] =$_SESSION['user_id'];
 			$arr['username'] = $POST['username'];
-			// $arr['password'] =$POST['password']  ;
 			$arr['email'] = $POST['email'];
 			$arr['date'] = date("Y-m-d H:i:s");
 

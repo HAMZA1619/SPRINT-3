@@ -1,6 +1,6 @@
 <?php $this->view("include/header",$data);?>
 <form  method="post">
-<div class="card p-3 radius m-auto w-25 mt-4" >
+<div class="card p-3 radius m-auto log mt-4" >
     <div class="card-body ">
       <h3 class="card-title text-center">Forgot Password</h3>
       <div class="form-group">
