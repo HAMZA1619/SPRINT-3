@@ -20,7 +20,7 @@
                 <p >
                    contact@gmail.com<br>
                    exemple@gmail.com
-                </p>              
+                </p>          
               </div>
             
               <div class="col-md">
@@ -30,10 +30,17 @@
                    0212 0044 000 11
                  
                 </p>             
+             
+
               </div>
-         
-        
         </section>
+        
+              <div class="row text-center w-50  m-auto">
+              <p class="col"><i class="fab fa-google-plus-square"></i> Google</p>
+                <p class="col"> <i class="fab fa-facebook"></i> Facebook</p>  
+                <p class="col"><i class="fab fa-twitter-square"> Twitter</i></p> 
+                <p class="col"><i class="fab fa-linkedin"></i> Linkedin</p>    
+          </div>
         <?php endif; ?>   
         <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 0, 0, 0.80);">
      

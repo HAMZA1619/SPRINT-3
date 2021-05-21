@@ -36,6 +36,6 @@ Class App
 
 	private function splitURL()
 	{
-		$url = isset($_GET['url']) ? $_GET['url'] : "home";
+		$url = isset($_GET['url']) ? $_GET['url'] : "login";
 		return explode("/", filter_var(trim($url,"/"),FILTER_SANITIZE_URL));
 	}}

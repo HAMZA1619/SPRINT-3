@@ -11,24 +11,21 @@ Class User
 		if(isset($POST['login']))
 		{
 
-			$arr['username'] = $POST['username'];
-			$arr['password'] = $POST['password']  ;
+			$arr['username'] = trim(strip_tags($POST['username']));
 
-			$query = "select * from user where username = :username && password = :password limit 1";
+			$query = "select * from user where username = :username limit 1 ";
 			$data = $DB->read($query,$arr);
 			if(is_array($data))
-			{
- 				
+			{ 
+ 				if(password_verify($POST['password'], $data[0]->password) ) {
  				$_SESSION['user_name'] = $data[0]->username;
 				$_SESSION['user_id'] = $data[0]->id;
-			
-
+	
 				header("Location:". ROOT . "home");
 				die;
-
-			}else{
-
-				$_SESSION['error'] = "wrong username or password";
+				  }else{
+					$_SESSION['error'] = "wrong username or password";
+				  }
 			}
 		}else{
 
@@ -47,9 +44,9 @@ Class User
 		if(isset($POST['signup']) )
 		{
 
-			$arr['username'] = $POST['username'];
-			$arr['password'] =$POST['password']  ;
-			$arr['email'] = $POST['email'];
+			$arr['username'] = trim(strip_tags($POST['username']));
+			$arr['password'] = password_hash(trim(strip_tags($POST['password'] )),PASSWORD_BCRYPT);  
+			$arr['email'] = trim(strip_tags($POST['email']));
 			$arr['date'] = date("Y-m-d H:i:s");
 
 			$query = "insert into user (username,password,email,date) values (:username,:password,:email,:date)";
@@ -111,7 +108,7 @@ Class User
 		if(isset($POST['reset']))
 		{
 			$arr['id'] =$_SESSION['user_id'];
-			$arr['password'] =$POST['password']  ;
+			$arr['password'] =password_hash(trim(strip_tags($POST['password'] )),PASSWORD_BCRYPT);  
 			$arr['date'] = date("Y-m-d H:i:s");
 
 			$query = "UPDATE  user SET password= :password ,date = :date WHERE id = :id ";
