@@ -7,7 +7,8 @@ Class Forgot extends Controller
  	 	
  	 	$data['page_title'] = "Forgot";
 
-		
+		  $user = $this->loadModel("user");
+		  $user->selectUsermail($_POST);
 
 		$this->view("forgot",$data);
 	}

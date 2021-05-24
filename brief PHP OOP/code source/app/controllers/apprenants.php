@@ -3,6 +3,7 @@ Class Apprenants extends Controller
 {
 	function index()
 	{
+		if(isset($_SESSION['user_id'])){
 		$data['page_title'] = "Apprenants";
 
 		$add = $this->loadModel("apprenant");
@@ -17,6 +18,12 @@ Class Apprenants extends Controller
 
  	 	}
 		$this->view("apprenants",$data);
+	}
+	else{
+		$data['page_title'] = "Login";
+		$this->view("login",$data);
+	}
+
 	}
 
 }

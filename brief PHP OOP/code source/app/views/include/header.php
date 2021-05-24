@@ -17,7 +17,7 @@
           <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon   "></span>
           </button>
-          <?php if(isset($_SESSION['user_name'])): ?>
+          <?php if(isset($_SESSION['user_id'])): ?>
             <a  href="<?=ROOT?>home"  ><img  class="navbar-brand logo"  src="<?=ASSETS?>img/apprenant.png" alt="hellllll"></a>
           <?php else: ?>  
             <img  class="navbar-brand logo"  src="<?=ASSETS?>img/apprenant.png" alt="hellllll"> 
@@ -42,7 +42,7 @@
                 <a class="nav-link lin" href="<?=ROOT?>about">About Us</a>
               </li>
               
-              <?php elseif(!isset($_SESSION['user_name'])):
+              <?php elseif(!isset($_SESSION['user_id'])):
                 ?>
                <style>
                  .navbar{

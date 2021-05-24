@@ -1,6 +1,6 @@
 
 <footer class=" mt-5">
-<?php if(isset($_SESSION['user_name'])): ?>
+<?php if(isset($_SESSION['user_id'])): ?>
 <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 0, 0, 0.80);">
      <section class="row text-center ">
         

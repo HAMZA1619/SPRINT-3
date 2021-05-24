@@ -3,6 +3,7 @@ Class Salle_profile extends Controller
 {
 	function index()
 	{
+        if(isset($_SESSION['user_id'])){
         $data['page_title'] = "Salle_profile";
 
         $stud = $this->loadModel("classes");
@@ -15,4 +16,10 @@ Class Salle_profile extends Controller
 
         
        $this->view("salle_profile",$data);
+
+      }
+    else{
+        $data['page_title'] = "Login";
+        $this->view("login",$data);
+     }
     }}
