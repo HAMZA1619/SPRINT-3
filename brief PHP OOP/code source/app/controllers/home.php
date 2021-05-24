@@ -6,7 +6,7 @@ Class Home extends Controller
 	{
      
         if (isset($_POST['home'])) {
-                $_SESSION['user_id'] =$_POST['home'];
+        $_SESSION['user_id'] =$_POST['home'];
         }
         if(isset($_SESSION['user_id'])){
 

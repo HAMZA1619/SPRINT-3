@@ -36,7 +36,7 @@ Class App
 
 	private function splitURL()
 	{
-		if (isset($_SESSION['user_name'])) {
+		if (isset($_SESSION['user_id'])) {
 			$url = isset($_GET['url']) ? $_GET['url'] : "home";
 		}else{
 		$url = isset($_GET['url']) ? $_GET['url'] : "login";

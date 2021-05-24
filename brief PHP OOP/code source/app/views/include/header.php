@@ -24,7 +24,7 @@
           <?php endif; ?>   
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav col-md-4 list-unstyled ms-auto mb-lg-0">
-            <?php if(isset($_SESSION['user_name'])): ?>
+            <?php if(isset($_SESSION['user_id'])): ?>
             
               <li class="nav-item">
                 <a class="nav-link lin" href="<?=ROOT?>home" aria-current="page" >Home</a>

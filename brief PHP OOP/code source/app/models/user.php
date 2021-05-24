@@ -18,7 +18,7 @@ Class User
 			if(is_array($data))
 			{ 
  				if(password_verify($POST['password'], $data[0]->password) ) {
- 				$_SESSION['user_name'] = $data[0]->username;
+ 				
 				$_SESSION['user_id'] = $data[0]->id;
 	
 				header("Location:". ROOT . "home");
@@ -86,7 +86,7 @@ Class User
 			$data = $DB->read($query,$arr);
 			if(is_array($data))
 		   {
-			require "../app/core/mail.php";
+			require "../app/core/mailer/mail.php";
 			$mail->setFrom('hamzaelg32@gmail.com', 'Gestion Des Apprenants');
 			$mail->addAddress($data[0]->email);
 			$mail->Subject = 'Reset Password';
@@ -158,7 +158,7 @@ Class User
 	function logout()
 	{
 		
-		unset($_SESSION['user_name']);
+	
 		unset($_SESSION['user_id']);
 
 		header("Location:". ROOT . "login");
