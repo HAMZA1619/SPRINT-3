@@ -1,6 +1,8 @@
 <?php 
 class Apprenant {
 
+	
+
     function addApprenant($POST){
 		$DB = new Database();
         $_SESSION['error'] = "";
@@ -11,10 +13,10 @@ class Apprenant {
 			$arr['genre'] = $POST['genre'];
 			$arr['age'] = $POST['age'];
 			$arr['id_class'] = $POST['id_class'];
-			$arr['id_user'] = $_SESSION['user_id'];
+		
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "insert into apprenant (nom,prenom,genre,age,id_class,id_user,date) values (:nom,:prenom,:genre,:age,:id_class,:id_user,:date)";
+			$query = "insert into apprenant (nom,prenom,genre,age,id_class,date) values (:nom,:prenom,:genre,:age,:id_class,:date)";
 			$data = $DB->write($query,$arr);
 			if($data)
 			{
@@ -32,9 +34,9 @@ class Apprenant {
 
     function selectApprenant(){
 		$DB = new Database();
-		  $arr['id_user'] = $_SESSION['user_id'];
-			$query = "select * from apprenant  where id_user = :id_user ORDER BY nom ASC";
-			$data = $DB->read($query,$arr);
+		
+			$query = "select * from apprenant   ORDER BY nom ASC";
+			$data = $DB->read($query);
 			if(is_array($data))
 		   {
 			return $data;
@@ -55,6 +57,7 @@ class Apprenant {
 		    }}
 			return false;
     }
+
     function modifieApprenant($POST){
 		$DB = new Database();
 		if(isset($POST['update']))
@@ -63,11 +66,11 @@ class Apprenant {
 			$arr['prenom'] =$POST['prenom']  ;
 			$arr['genre'] = $POST['genre'];
 			$arr['age'] = $POST['age'];
-			$arr['id_user'] = $_SESSION['user_id'];
+			
 			$arr['id_class'] = $POST['id_class'];
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "UPDATE  apprenant SET nom= :nom ,prenom = :prenom ,genre =:genre,age = :age, id_user=:id_user, id_class=:id_class, date=:date WHERE id = :id ";
+			$query = "UPDATE  apprenant SET nom= :nom ,prenom = :prenom ,genre =:genre,age = :age, id_class=:id_class, date=:date WHERE id = :id ";
 			$data = $DB->write($query,$arr);
 			if(is_array($data))
 			{

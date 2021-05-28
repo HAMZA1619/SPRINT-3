@@ -20,6 +20,7 @@ Class User
  				if(password_verify($POST['password'], $data[0]->password) ) {
  				
 				$_SESSION['user_id'] = $data[0]->id;
+				$_SESSION['user_role'] = $data[0]->role;
 	
 				header("Location:". ROOT . "home");
 				die;
@@ -47,14 +48,19 @@ Class User
 			$arr['username'] = trim(strip_tags($POST['username']));
 			$arr['password'] = password_hash(trim(strip_tags($POST['password'] )),PASSWORD_BCRYPT);  
 			$arr['email'] = trim(strip_tags($POST['email']));
+			$arr['role'] = "user";
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "insert into user (username,password,email,date) values (:username,:password,:email,:date)";
+			$query = "insert into user (username,password,email,role,date) values (:username,:password,:email,:role,:date)";
 			$data = $DB->write($query,$arr);
 			if($data)
 			{
+				if($arr['role'] == "user"){
+				 header("Location:". ROOT . "std_profile");	
+				}else{
+			     header("Location:". ROOT . "login");
+				}
 				
-				header("Location:". ROOT . "login");
 				die;
 			}
 
@@ -63,6 +69,7 @@ Class User
 			$_SESSION['error'] = "please enter a valid username and password";
 		}
 	}
+
 	function selectUser(){
 		$DB = new Database();
 		$arr['id'] =$_SESSION['user_id'];

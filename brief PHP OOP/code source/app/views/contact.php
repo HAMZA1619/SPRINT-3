@@ -20,7 +20,7 @@
               <label for="">Type In Your Massege  :</label>
               <textarea name="Massege" id="" class="form-control col-lg-5 d-inline"  rows="5" required></textarea>
             </div>
-               <button type="submit"  class="btn mt-4 form-control btn-info btn-block">Sand</button>
+               <button type="submit"  class="btn mt-4 form-control btn-info btn-block">Send</button>
             </div>
             </div>
           </div>

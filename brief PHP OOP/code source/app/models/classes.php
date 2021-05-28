@@ -30,9 +30,9 @@ class Classes {
 
     function selectClass(){
 		$DB = new Database();
-		  $arr['id_user'] = $_SESSION['user_id'];
-			$query = "select * from class  where id_user = :id_user ORDER BY nom ASC";
-			$data = $DB->read($query,$arr);
+		
+			$query = "select * from class  ORDER BY nom ASC";
+			$data = $DB->read($query);
 			if(is_array($data))
 		   {
 			return $data;

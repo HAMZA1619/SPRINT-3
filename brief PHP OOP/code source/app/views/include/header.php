@@ -17,7 +17,7 @@
           <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon   "></span>
           </button>
-          <?php if(isset($_SESSION['user_id'])): ?>
+          <?php if(isset($_SESSION['user_id']) ): ?>
             <a  href="<?=ROOT?>home"  ><img  class="navbar-brand logo"  src="<?=ASSETS?>img/apprenant.png" alt="hellllll"></a>
           <?php else: ?>  
             <img  class="navbar-brand logo"  src="<?=ASSETS?>img/apprenant.png" alt="hellllll"> 
@@ -25,12 +25,12 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav col-md-4 list-unstyled ms-auto mb-lg-0">
             <?php if(isset($_SESSION['user_id'])): ?>
-            
               <li class="nav-item">
                 <a class="nav-link lin" href="<?=ROOT?>home" aria-current="page" >Home</a>
               </li>
+    
               <li class="nav-item">
-                <a class="nav-link lin" href="<?=ROOT?>apprenants">Apprenant</a>
+                <a class="nav-link lin" href="<?=ROOT?>apprenants">Students</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link lin" href="<?=ROOT?>salle">Classes</a>
@@ -39,7 +39,7 @@
                 <a class="nav-link lin" href="<?=ROOT?>contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link lin" href="<?=ROOT?>about">About Us</a>
+                <a class="nav-link lin" href="<?=ROOT?>about">About-Us</a>
               </li>
               
               <?php elseif(!isset($_SESSION['user_id'])):
@@ -55,8 +55,11 @@
               <li class="nav-item">
               <a class="nav-link link-2"  href="<?=ROOT?>login">Login</a>
               </li>
-              <li class="nav-item">
-              <a class="btn   btn-outline-primary" href="<?=ROOT?>signup">Signup</a>
+              <li class="nav-item" style="margin-right:15px;">
+              <a class="btn btn-outline-primary" href="<?=ROOT?>signup">Signup</a>
+            </li>
+            <li class="nav-item ">
+              <a class="btn   btn-outline-primary" href="<?=ROOT?>regester">Regester</a>
             </li>
             <?php endif; ?>   
             </ul>

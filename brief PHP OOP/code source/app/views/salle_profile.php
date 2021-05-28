@@ -6,7 +6,7 @@
 <form method="POST">
     <div class="card p-3 radius m-auto pro" >
         <div class="card-body">
-            <a class="btn  btn-info btn-block" href="salle">Back</a>
+            <a class="btn  btn-info " href="salle">Back</a>
           <div class="form-group mt-2">
             <label for="">Nom :</label>
             <input type="" class="form-control" value="<?=$rw->nom?>" name="nom" required>

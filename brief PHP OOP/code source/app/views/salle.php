@@ -8,11 +8,13 @@
          <table>
            <thead>
              <tr>
-               <th>Nom</th>
+               <th>Name</th>
                <th class="diss">Specialite</th>
                <th class="diss">Desception</th>
                <th>Students</th>
+               <?php if ($_SESSION['user_role'] == "admin"): ?>
                <th>Modifie</th>
+               <?php endif; ?>
              </tr>
            </thead>
            <tbody>
@@ -28,10 +30,12 @@
                 <td><?= array_count_values(array_column($data['student'],'id_class'))[$nom] ?? 0 ?></td>
                 <?php endif; ?>
                 <!-- end of counting  -------------->
+                <?php if ($_SESSION['user_role'] == "admin"): ?>
                <td><form action="<?=ROOT?>salle_profile"  method="POST">
-               <button  type="submit" name="profile" value="<?=$row->id?>" class="btn  btn-success btn-block">
+               <button  type="submit" name="profile" value="<?=$row->id?>" class="btn  btn-primary btn-block">
                Edit <i style="margin-left: 5px;"  class="far fa-edit"></button></form></td>
-             </tr>             
+               <?php endif; ?>
+              </tr>             
           <?php endforeach; ?>
           <?php endif; ?>
          </tbody>
@@ -39,7 +43,7 @@
        </div>
   
 
-
+       <?php if ($_SESSION['user_role'] == "admin"): ?>
      <!-- Add class button  -->
        <button type="submit" data-toggle="modal" data-target="#add-salle" class="btn add btn-info " >
          Add class <i  class="fas fa-plus-circle"></i></button>
@@ -81,6 +85,7 @@
     </div>
     </div>
   </div>
+  <?php endif; ?>
 </div>
 
 <?php $this->view("include/footer",$data);?>

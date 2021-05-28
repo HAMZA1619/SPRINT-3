@@ -5,33 +5,49 @@
   <h3 class="text-center  ">Tableux Des Apprenants </h3>
       
        <div >
+       <?php if(is_array($data['salle'])): ?>
+          <?php foreach($data['salle'] as $rw): ?>
+            <h4 class="text-center m-4 ">Class : <strong><?=$rw->nom?> </strong></h4>
          <table >
            <thead>
              <tr>
-               <th>Nom</th>
-               <th>Prenom</th>
+               <th>FirstName</th>
+               <th>LastName</th>
                <th class="diss">Age</th>
-               <th class="diss">Class</th>
+              
+               <?php if ($_SESSION['user_role'] == "admin"): ?>
                <th>View Profile</th>
+               <?php else: ?>
+                <th>Id</th>
+               <?php endif; ?>
              </tr>
            </thead>
            <tbody>
       <?php if(is_array($data['student'])): ?>
-        <?php foreach($data['student'] as $row): ?>
+        <?php foreach($data['student'] as $row):
+          if ($row->id_class == $rw->nom): ?>
+        
              <tr>
                <td><?=$row->nom ?></td>
                <td ><?=$row->prenom?></td>
                <td class="diss"><?=$row->age?></td>
-               <td class="diss"><?=$row->id_class?></td>
-               <td><form action="<?=ROOT?>std_profile" method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn btn-success btn-block">Profile <i class="fas fa-user"></i></button></form></td>
-             </tr>
+               <?php if ($_SESSION['user_role'] == "admin"): ?>
+               <td><form action="<?=ROOT?>std_profile" method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn btn-primary btn-block">Profile <i class="fas fa-user"></i></button></form></td>
+               <?php else: ?>
+                <td><?=$row->id ?></td>
+               <?php endif; ?>
+              </tr>
+              <?php endif; ?>
      <?php endforeach; ?>
           <?php endif; ?>
      </tbody>
          </table>
+         <?php endforeach; ?>
+          <?php endif; ?>
        </div>
   
        <!-- Add student button  -->
+       <?php if ($_SESSION['user_role'] == "admin"): ?>
        <button type="submit" data-toggle="modal" data-target="#add-student" class="btn add btn-info " >
          Add student <i  class="fas fa-plus-circle"></i></button>
         <!-- ------------ -->
@@ -90,6 +106,7 @@
 </div>
     </div>
   </div>
+  <?php endif; ?>
 </div>
 
 <?php $this->view("include/footer",$data);?>

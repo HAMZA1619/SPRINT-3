@@ -5,14 +5,21 @@ Class Home extends Controller
 	function index()
 	{
      
-        if (isset($_POST['home'])) {
+        if (isset($_POST['home']) ) {
         $_SESSION['user_id'] =$_POST['home'];
         }
-        if(isset($_SESSION['user_id'])){
+        if(isset($_SESSION['user_id']) ){
+
+               
 
         $data['page_title'] = "Home";
         $student = $this->loadModel("apprenant");
 	$data['student'] = $student->selectApprenant();
+
+      
+        $data['std_profil']= $student->selectProfile('40');    
+    
+        
 
         $class = $this->loadModel("classes");
 	$data['class'] = $class->selectClass();
@@ -25,6 +32,7 @@ Class Home extends Controller
         $user->resetPassword($_POST);
 
        $this->view("profile",$data);
+
      }else{
         $data['page_title'] = "Login";
         $this->view("login",$data);

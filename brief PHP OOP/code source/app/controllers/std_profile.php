@@ -6,7 +6,7 @@ Class Std_profile extends Controller
 	{
         if(isset($_SESSION['user_id'])){
         $data['page_title'] = "Std_profile";
-
+    
         $stud = $this->loadModel("apprenant");
         $data['std_profile']= $stud->selectProfile($_POST);
 

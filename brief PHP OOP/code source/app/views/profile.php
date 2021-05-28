@@ -22,6 +22,7 @@
 <!-- title ---------->
 <div class=" col-md">
 <h1 class="card-title  ">Hi <?=$row->username?></h1>
+
   <?php if(is_array($data['student'])): ?>
     <?php $totale = count($data['student']); ?>
     <h2 > Totale of students is : <?= $totale ?>  </h2>
@@ -40,7 +41,7 @@
            $one = $male/$totale*100; 
            $tow = $female/$totale*100;
            ?>
-             <h3 class="text-center">Appranants</h3>
+             <h3 class="text-center">Students</h3>
           <h5 >Male : <?=round($one,1)?> %</h5> <progress class="male" value='<?=$one?>' max='100'> </progress>
           <h5> Female : <?=round($tow,1)?> %</h5> <progress class="female" value='<?=$tow?>' max='100'>  </progress>
         
@@ -66,7 +67,9 @@
           <?php endif; ?>
       </div>
     </a>
+  
     </div>
+   
   </div>
 </div>
 
