@@ -1,6 +1,7 @@
 <?php $this->view("include/header",$data);?>
 <div class="card p-3">
     <h3 class="text-center p-3">Cantact Us</h3>
+  
 <form  method="POST">
         <div class="card p-3  pro bg-light mb-3 m-auto " >
           <div class="card-body">
@@ -20,7 +21,7 @@
               <label for="">Type In Your Massege  :</label>
               <textarea name="Massege" id="" class="form-control col-lg-5 d-inline"  rows="5" required></textarea>
             </div>
-               <button type="submit"  class="btn mt-4 form-control btn-info btn-block">Send</button>
+               <button type="submit"  name="contact" class="btn mt-4 form-control btn-info btn-block">Send</button>
             </div>
             </div>
           </div>

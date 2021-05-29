@@ -1,22 +1,47 @@
+
 <?php 
 class Apprenant {
 
 	
 
-    function addApprenant($POST){
+    function addApprenant($POST,$FILES){
 		$DB = new Database();
         $_SESSION['error'] = "";
-		if(isset($POST['save']))
-		{
+		$allowed[] = "image/png";
+		$allowed[] = "image/jpg";
+		$allowed[] = "image/jpeg";
+		
+			if($FILES['file']['name'] != "" && $FILES['file']['error'] == 0 && in_array($FILES['file']['type'], $allowed))
+			{
+			 	$folder = "uploads/";
+			 	if(!file_exists($folder))
+			 	{
+			 		mkdir($folder,0777,true);
+
+			 	}
+
+			 	$destination = $folder . $FILES['file']['name'];
+
+				move_uploaded_file($FILES['file']['tmp_name'], $destination);
+
+			}else{
+				$_SESSION['error'] = "This file could not be uploaded";
+			}
+
+			if($_SESSION['error'] == "")
+			{
+
+
 			$arr['nom'] = $POST['nom'];
 			$arr['prenom'] =$POST['prenom']  ;
+			$arr['image'] = $destination;
 			$arr['genre'] = $POST['genre'];
 			$arr['age'] = $POST['age'];
 			$arr['id_class'] = $POST['id_class'];
 		
 			$arr['date'] = date("Y-m-d H:i:s");
 
-			$query = "insert into apprenant (nom,prenom,genre,age,id_class,date) values (:nom,:prenom,:genre,:age,:id_class,:date)";
+			$query = "insert into apprenant (nom,prenom,image,genre,age,id_class,date) values (:nom,:prenom,:image,:genre,:age,:id_class,:date)";
 			$data = $DB->write($query,$arr);
 			if($data)
 			{
@@ -25,11 +50,7 @@ class Apprenant {
 				die;
 			}
 
-		}else{
-
-			$_SESSION['error'] = "please enter a valid username and password";
 		}
-
     }
 
     function selectApprenant(){
@@ -61,7 +82,9 @@ class Apprenant {
     function modifieApprenant($POST){
 		$DB = new Database();
 		if(isset($POST['update']))
-		{   $arr['id']= $_SESSION['app_id'];
+		{ 
+			
+			$arr['id']= $_SESSION['app_id'];
 			$arr['nom'] = $POST['nom'];
 			$arr['prenom'] =$POST['prenom']  ;
 			$arr['genre'] = $POST['genre'];

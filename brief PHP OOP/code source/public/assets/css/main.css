@@ -17,7 +17,17 @@ body{
 .img{
  position: relative;
  left: 36%;
+ max-width: 140px !important;
+ max-height: 140px !important;
+ overflow: hidden;
+ border-radius: 50%;
 }
+.img2{
+  max-width: 60px !important;
+  max-height: 60px !important;
+  overflow: hidden;
+  border-radius: 50%;
+ }
 table{
   table-layout: fixed;
   width: 93%;
@@ -106,10 +116,15 @@ progress[value]{
   .diss{
     display: none;
   }
+  h5{
+    font-size: small;
+  }
+
 }
 @media screen and (max-width : 700px){
   table{
     width: 110%;
     margin-left: -5%;
+    font-size: small;
   }
 }

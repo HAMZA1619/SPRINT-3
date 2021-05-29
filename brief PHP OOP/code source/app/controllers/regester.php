@@ -11,10 +11,11 @@ Class Regester extends Controller
 		//   $user->selectUsermail($_POST);
         $sall = $this->loadModel("classes");
 		$data['sall'] = $sall->selectClass();
-        $add = $this->loadModel("apprenant");
+       
 		if(isset($_POST['save']))
  	 	{
- 	 		$add->addApprenant($_POST);
+			$add = $this->loadModel("apprenant");
+ 	 		$add->addApprenant($_POST,$_FILES);
 
  	 	}
 		$this->view("regester",$data);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 28 mai 2021 à 18:39
+-- Généré le : sam. 29 mai 2021 à 17:24
 -- Version du serveur :  10.4.19-MariaDB
 -- Version de PHP : 8.0.6
 
@@ -31,6 +31,7 @@ CREATE TABLE `apprenant` (
   `id` int(11) NOT NULL,
   `nom` varchar(60) NOT NULL,
   `prenom` varchar(60) NOT NULL,
+  `image` varchar(122) NOT NULL,
   `genre` varchar(10) NOT NULL,
   `age` int(11) NOT NULL,
   `id_class` varchar(60) NOT NULL,
@@ -41,18 +42,14 @@ CREATE TABLE `apprenant` (
 -- Déchargement des données de la table `apprenant`
 --
 
-INSERT INTO `apprenant` (`id`, `nom`, `prenom`, `genre`, `age`, `id_class`, `date`) VALUES
-(31, 'hamza', 'elglaoui', 'male', 20, 'hamid', '2021-05-28 18:02:54'),
-(32, 'hind', 'toto', 'female', 22, 'grad 3', '2021-05-28 18:03:03'),
-(34, 'hamid', 'toto', 'female', 20, '', '2021-05-28 13:16:00'),
-(35, 'grad 1', 'prenom', 'male', 11, 'grad 1', '2021-05-28 14:04:00'),
-(36, 'ELGLAOUI', 'HAMZA', 'male', 11, 'grad 1', '2021-05-28 14:04:08'),
-(37, 'kjuytr', 'jhg', 'male', 23, 'grad 2', '2021-05-28 14:04:16'),
-(38, 'ELGLAOUI', 'jhg', 'male', 23, 'grad 2', '2021-05-28 14:04:29'),
-(39, 'kjuytr', 'prenom', 'male', 11, 'grad 2', '2021-05-28 14:04:39'),
-(40, 'grad 1', 'HAMZA', 'male', 11, 'grad 1', '2021-05-28 14:04:47'),
-(41, 'elglaoui', 'hamza', 'male', 11, 'grad 2', '2021-05-28 15:38:49'),
-(43, 'elglaoui', 'hamza', 'male', 22, 'grad 1', '2021-05-28 16:04:58');
+INSERT INTO `apprenant` (`id`, `nom`, `prenom`, `image`, `genre`, `age`, `id_class`, `date`) VALUES
+(47, 'hamza', 'elglaoui', 'uploads/image-patrick.jpg', 'female', 20, 'grad 1', '2021-05-29 15:25:24'),
+(48, 'hamza', 'elglaoui', 'uploads/image-jeanette.jpg', 'male', 22, 'grad 2', '2021-05-29 15:22:24'),
+(49, 'hamid', 'elglaoui', 'uploads/800px_COLOURBOX7084548.jpg', 'female', 20, 'grad 2', '2021-05-29 15:04:06'),
+(50, 'hamid', 'toto', 'uploads/image-jonathan.jpg', 'male', 22, 'grad 1', '2021-05-29 15:21:40'),
+(51, 'hamid', 'toto', 'uploads/image-irene.jpg', 'male', 22, 'grad 2', '2021-05-29 15:13:16'),
+(52, 'aa', 'toto', 'uploads/image-anne.jpg', 'female', 22, 'grad 3', '2021-05-29 15:15:18'),
+(53, 'hamza', 'toto', 'uploads/image-kira.jpg', 'female', 22, 'hamid', '2021-05-29 15:27:45');
 
 -- --------------------------------------------------------
 
@@ -133,7 +130,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `apprenant`
 --
 ALTER TABLE `apprenant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pour la table `class`

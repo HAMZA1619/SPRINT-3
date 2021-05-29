@@ -10,7 +10,13 @@ Class Apprenants extends Controller
 		$data['student'] = $add->selectApprenant();
 
 		$ad = $this->loadModel("classes");
-		$data['salle'] = $ad->selectClass();
+		$data['sall'] = $ad->selectClass();
+
+		if(isset($_POST['save']) && isset($_FILES['file']))
+		{
+			$add->addApprenant($_POST,$_FILES);
+
+		}
 
 		$this->view("apprenants",$data);
 	}

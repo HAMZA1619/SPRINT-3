@@ -1,7 +1,8 @@
 <?php $this->view("include/header",$data);?>
 
-<form method="POST">
-      <div class="card p-3 radius m-auto  " >
+<form method="POST" enctype="multipart/form-data">
+    <p><?php check_message() ?></p>
+    <div class="card p-3 radius m-auto pro " >
           <h4 class="text-center">Regester</h4>
       <div class="card-body">
           <div class="form-group mt-2">
@@ -11,6 +12,10 @@
           <div class="form-group mt-2">
             <label for="">Prenom :</label>
             <input type="" class="form-control" name="prenom"  required >
+          </div>
+          <div class="form-group mt-2">
+            <label for="">Photo :</label>
+            <input type="file" class="form-control" name="file"  required >
           </div>
           <div class="form-group mt-2">
             <label for="">Sexe :</label>
@@ -37,8 +42,10 @@
             </select>
            
           </div>
-           <button type="submit" name="save" class="btn mt-3 form-control btn-info btn-block">Save</button>
+           <button type="submit" name="save" class="btn mt-3 form-control btn-dark btn-block">Save</button>
           </div>
         </div>
+      
     </form>
+   
     <?php $this->view("include/footer",$data);?>

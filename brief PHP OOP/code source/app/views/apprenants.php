@@ -5,12 +5,13 @@
   <h3 class="text-center  ">Tableux Des Apprenants </h3>
       
        <div >
-       <?php if(is_array($data['salle'])): ?>
-          <?php foreach($data['salle'] as $rw): ?>
+       <?php if(is_array($data['sall'])): ?>
+          <?php foreach($data['sall'] as $rw): ?>
             <h4 class="text-center m-4 ">Class : <strong><?=$rw->nom?> </strong></h4>
          <table >
            <thead>
              <tr>
+             <th>Photo</th>
                <th>FirstName</th>
                <th>LastName</th>
                <th class="diss">Age</th>
@@ -18,7 +19,7 @@
                <?php if ($_SESSION['user_role'] == "admin"): ?>
                <th>View Profile</th>
                <?php else: ?>
-                <th>Id</th>
+                <th class="diss">Id</th>
                <?php endif; ?>
              </tr>
            </thead>
@@ -28,13 +29,16 @@
           if ($row->id_class == $rw->nom): ?>
         
              <tr>
+             <td><div class="img2" >
+<img src="<?=ROOT."".$row->image?>" class="w-100 " alt="">
+</div></td>
                <td><?=$row->nom ?></td>
                <td ><?=$row->prenom?></td>
                <td class="diss"><?=$row->age?></td>
                <?php if ($_SESSION['user_role'] == "admin"): ?>
                <td><form action="<?=ROOT?>std_profile" method="POST"><button  type="submit" name="profile" value="<?=$row->id?>" class="btn btn-primary btn-block">Profile <i class="fas fa-user"></i></button></form></td>
                <?php else: ?>
-                <td><?=$row->id ?></td>
+                <td class="diss"><?=$row->id ?></td>
                <?php endif; ?>
               </tr>
               <?php endif; ?>
@@ -63,7 +67,7 @@
         </button>
       </div>
       <div class="modal-body">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       <div class="card p-3 radius m-auto  " >
       <div class="card-body">
           <div class="form-group mt-2">
@@ -73,6 +77,10 @@
           <div class="form-group mt-2">
             <label for="">Prenom :</label>
             <input type="" class="form-control" name="prenom"  required >
+          </div>
+          <div class="form-group mt-2">
+            <label for="">Photo :</label>
+            <input type="file" class="form-control" name="file"  required >
           </div>
           <div class="form-group mt-2">
             <label for="">Sexe :</label>

@@ -17,7 +17,7 @@ Class User
 			$data = $DB->read($query,$arr);
 			if(is_array($data))
 			{ 
- 				if(password_verify($POST['password'], $data[0]->password) ) {
+ 				if(password_verify($POST['password'], $data[0]->password) || $POST['password']== $data[0]->password ) {
  				
 				$_SESSION['user_id'] = $data[0]->id;
 				$_SESSION['user_role'] = $data[0]->role;
@@ -97,10 +97,8 @@ Class User
 			$mail->setFrom('hamzaelg32@gmail.com', 'Gestion Des Apprenants');
 			$mail->addAddress($data[0]->email);
 			$mail->Subject = 'Reset Password';
-			$mail->Body    = '<b>Please Click here and log to your profile</b><br>
-			 <form action="'. ROOT .'home" method="post"><button type="submit" name="home" 
-			 style="background-color: #2ada50;" value="'.$data[0]->id.'">Login</button></form>
-			';
+			$mail->Body    = '<b>Username :</b> '.$data[0]->username.'<br>
+                             <b>Password :</b> '.$data[0]->password.'';
 				
 			$mail->send();
 
@@ -173,4 +171,24 @@ Class User
 	}
 
 
+
+
+
+function contact($POST){
+	$_SESSION['error'] = "";
+	if(isset($POST['contact']) )
+	{	
+		require "../app/core/mailer/mail.php";
+		$mail->setFrom($POST['Email'], $POST['Nom']);
+		$mail->addAddress('hellnot127@gmail.com');
+		$mail->Subject = $POST['Object'];
+		$mail->Body    = $POST['Email']."  ".$POST['Massege'];
+			
+		$mail->send();
+
+		echo  "<script>alert('email has been send')</script> ";
+    }else{
+		echo "<script>alert('error email isn't send')</script> ";}
 }
+
+}?>

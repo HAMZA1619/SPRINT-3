@@ -14,7 +14,7 @@ Class Std_profile extends Controller
        $sall = $this->loadModel("classes");
        $data['sall'] = $sall->selectClass();
 
-        $stud->modifieApprenant($_POST);
+        $stud->modifieApprenant($_POST );
         
         $stud->deleteApprenant($_POST);
        $this->view("std_profile",$data);

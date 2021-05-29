@@ -1,19 +1,16 @@
 <?php $this->view("include/header",$data);?>
 <?php if(is_array($data['std_profile'])):?>
   <?php foreach($data['std_profile'] as $rw):?>
-<form method="POST">
+<form method="POST" >
 
 <div class="card p-3 radius m-auto pro " >
 
 <div class="card-body ">
 <a class="btn col btn-info btn-block" href="apprenants">Back</a>
 <div class="form-group ">
-<?php if($rw->genre=='male'):?>
-<img src="<?=ASSETS?>img/male.png" class="w-25 img" alt="">
-
-<?php else:?>
-<img src="<?=ASSETS?>img/female.jpg" class="w-25 img" alt="">
-<?php endif; ?>
+<div class="img">
+<img src="<?=ROOT."".$rw->image?>" class="w-100 " alt="">
+</div>
 </div>
 <div class="row">
   <div class="form-group col-6 mt-2">
